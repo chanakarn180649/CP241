@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sortley — Sorting Challenge</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Sortley home">Sort<span>ley</span><i>.</i></a>
+      <div class="top-actions">
+        <span class="mode-label">SORTING CHALLENGE</span>
+        <button id="restartTop" class="icon-button" type="button" title="เริ่มเกมใหม่" aria-label="เริ่มเกมใหม่">↻</button>
+      </div>
+    </header>
+
+    <section class="intro">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> THINK · SORT · WIN</div>
+      <h1>Make the right <span>moves.</span></h1>
+      <p>เรียงลำดับตัวเลขในแต่ละ Phase ให้ตรงกับขั้นตอนของอัลกอริทึม</p>
+    </section>
+
+    <section class="game-panel">
+      <div class="challenge-head">
+        <div>
+          <div class="section-label">YOUR CHALLENGE</div>
+          <h2 id="sortTitle">Bubble Sort</h2>
+          <p id="sortDescription">เปรียบเทียบตัวเลขที่อยู่ติดกัน แล้วสลับเมื่อเรียงผิดลำดับ</p>
+        </div>
+        <div class="timer-card" id="timerCard">
+          <span class="timer-caption">TIME LEFT</span>
+          <strong id="timer">03:00</strong>
+          <div class="timer-track"><span id="timerBar"></span></div>
+        </div>
+      </div>
+
+      <div class="number-area">
+        <div class="area-heading">
+          <div>
+            <span class="section-label">NUMBER BANK</span>
+            <h3>ตัวเลขโจทย์</h3>
+          </div>
+          <span class="helper">ลากตัวเลขไปใส่ช่องในแต่ละ Phase</span>
+        </div>
+        <div id="numberBank" class="number-bank" aria-label="ตัวเลขโจทย์"></div>
+      </div>
+
+      <div class="phases-heading">
+        <div>
+          <span class="section-label">SORTING PROCESS</span>
+          <h3>เติมผลลัพธ์แต่ละ Phase</h3>
+        </div>
+        <span class="phase-count">5 PHASES</span>
+      </div>
+      <div id="phaseList" class="phase-list"></div>
+
+      <footer class="game-footer">
+        <div class="footer-note"><span class="note-icon">i</span><span>ใส่ตัวเลขให้ครบทั้ง 5 ช่องในทุก Phase แล้วกด Send เพื่อตรวจคำตอบ</span></div>
+        <button id="sendButton" class="send-button" type="button">Send answers <span>→</span></button>
+      </footer>
+      <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+    </section>
+    <p class="bottom-note">SORTLEY <span>•</span> EVERY PASS MATTERS</p>
+  </main>
+
+  <div id="resultOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+    <div class="result-card">
+      <div id="resultIcon" class="result-icon">✦</div>
+      <div id="resultKicker" class="result-kicker">CHALLENGE COMPLETE</div>
+      <h2 id="resultTitle">You win!</h2>
+      <p id="resultMessage">ทำได้ยอดเยี่ยมมาก👏</p>
+      <div id="remainingTimeWrap" class="remaining-time">
+        <span>TIME LEFT</span>
+        <strong id="remainingTime">02:15</strong>
+      </div>
+      <button id="replayButton" class="send-button result-button" type="button">Replay <span>↻</span></button>
+    </div>
+  </div>
+</body>
+</html>
