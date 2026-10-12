@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --ink: #182321;
+  --muted: #77827f;
+  --line: #e5ebe7;
+  --paper: #f6f8f5;
+  --green: #c8f36a;
+  --green-dark: #4e7124;
+  --mint: #e8f8d1;
+  --red: #e56b64;
+  --red-pale: #fff0ee;
+  --white: #fff;
+  --shadow: 0 16px 44px rgba(29, 52, 42, .07);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; color: var(--ink); background:
+  radial-gradient(ellipse at 15% 0%, rgba(200,243,106,.18), transparent 30%),
+  var(--paper);
+  font-family: "DM Sans", "Prompt", sans-serif;
+}
+button { font: inherit; }
+.app { width: min(1040px, calc(100% - 36px)); margin: 0 auto; padding: 24px 0 30px; }
+.topbar { display:flex; align-items:center; justify-content:space-between; padding: 4px 0 22px; border-bottom:1px solid #e7ece7; }
+.brand { color:var(--ink); text-decoration:none; font-size:27px; font-weight:800; letter-spacing:-1.4px; }
+.brand span { font-weight:500; }
+.brand i { color:#84bd32; font-style:normal; }
+.top-actions { display:flex; align-items:center; gap:17px; }
+.mode-label, .section-label, .timer-caption, .result-kicker { font-size:10px; font-weight:800; letter-spacing:1.6px; color:#89938e; }
+.icon-button { width:38px; height:38px; border:1px solid var(--line); border-radius:12px; background:white; color:var(--ink); font-size:23px; cursor:pointer; transition:.2s; }
+.icon-button:hover { background:var(--green); border-color:var(--green); transform:rotate(-20deg); }
+.intro { padding:35px 0 27px; }
+.eyebrow { display:flex; align-items:center; gap:8px; color:#6c8e3c; font-size:10px; font-weight:800; letter-spacing:2px; }
+.eyebrow-dot { width:7px; height:7px; border-radius:50%; background:#91c844; box-shadow:0 0 0 4px #e7f5d3; }
+h1 { font-size:clamp(30px, 5vw, 44px); letter-spacing:-1.8px; margin:11px 0 6px; line-height:1.1; }
+h1 span { color:#78a832; }
+.intro p { color:var(--muted); margin:0; font-family:"Prompt",sans-serif; font-size:14px; }
+.game-panel { background:white; border:1px solid #e8ede8; border-radius:23px; box-shadow:var(--shadow); padding:26px; }
+.challenge-head { display:flex; justify-content:space-between; align-items:flex-start; gap:20px; padding-bottom:23px; border-bottom:1px solid #edf0ed; }
+h2, h3, p { overflow-wrap:anywhere; }
+.challenge-head h2 { margin:7px 0 5px; font-size:25px; letter-spacing:-.7px; }
+.challenge-head p { margin:0; color:var(--muted); font-family:"Prompt",sans-serif; font-size:12px; }
+.timer-card { min-width:145px; background:#f7faef; border:1px solid #e9f2d9; border-radius:15px; padding:12px 14px 11px; }
+.timer-caption { font-size:9px; letter-spacing:1.5px; }
+.timer-card strong { display:block; font-size:27px; letter-spacing:1px; margin:2px 0 8px; font-variant-numeric:tabular-nums; }
+.timer-track { height:4px; background:#e1e9d4; border-radius:10px; overflow:hidden; }
+.timer-track span { display:block; width:100%; height:100%; border-radius:10px; background:#92c84c; transition:width .3s linear; }
+.timer-card.urgent { background:#fff5f2; border-color:#ffe1dc; }
+.timer-card.urgent strong { color:#d65c52; }
+.timer-card.urgent .timer-track span { background:#e56b64; }
+.number-area { padding:22px 0 24px; border-bottom:1px solid #edf0ed; }
+.area-heading, .phases-heading { display:flex; align-items:center; justify-content:space-between; gap:15px; }
+.area-heading h3, .phases-heading h3 { font-family:"Prompt",sans-serif; font-size:15px; margin:4px 0 0; font-weight:600; }
+.helper { font-family:"Prompt",sans-serif; color:#8b9590; font-size:11px; }
+.number-bank { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+.number-tile { display:flex; align-items:center; justify-content:center; min-width:65px; height:53px; padding:0 14px; background:#f6f9f3; border:1px solid #e0e9d8; border-radius:12px; color:#28392a; font-size:20px; font-weight:800; cursor:grab; user-select:none; box-shadow:0 3px 0 #e8eee2; transition:transform .15s,background .15s,border .15s; }
+.number-tile::before { content:"⠿"; font-size:12px; color:#a0b18d; margin-right:8px; }
+.number-tile:hover { transform:translateY(-2px); background:#edf8df; border-color:#b8db86; }
+.number-tile:active { cursor:grabbing; }
+.phases-heading { padding:23px 0 14px; }
+.phase-count { font-size:9px; font-weight:800; letter-spacing:1.3px; color:#7a8e68; background:#f1f8e7; padding:7px 10px; border-radius:7px; }
+.phase-list { display:grid; gap:10px; }
+.phase-row { display:grid; grid-template-columns:76px minmax(0,1fr); align-items:stretch; gap:11px; }
+.phase-label { display:flex; flex-direction:column; align-items:flex-start; justify-content:center; padding:0 0 0 3px; }
+.phase-label strong { font-size:12px; letter-spacing:.4px; }
+.phase-label span { margin-top:4px; color:#a0a9a3; font-size:9px; letter-spacing:1px; }
+.phase-status { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; margin-bottom:5px; font-size:13px; font-weight:800; color:#a6b0a8; background:#f1f4f1; }
+.phase-row.correct .phase-status { background:#dff5c5; color:#4b8523; }
+.phase-row.incorrect .phase-status { background:#ffe6e3; color:#d95e55; }
+.phase-slots { display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:7px; padding:8px; border:1px solid #e5eae5; border-radius:13px; background:#fafbf9; min-width:0; transition:border .2s,background .2s; }
+.phase-row.correct .phase-slots { border-color:#bde49b; background:#f7fced; }
+.phase-row.incorrect .phase-slots { border-color:#f1b9b3; background:#fff8f7; }
+.drop-slot { display:flex; align-items:center; justify-content:center; min-width:0; min-height:43px; border:1px dashed #d9e1d8; border-radius:8px; background:#fff; color:#c2cac3; font-size:12px; font-weight:700; cursor:pointer; transition:.15s; }
+.drop-slot.filled { border:1px solid #dce8d0; background:#eff8e5; color:#2e4728; font-size:17px; }
+.drop-slot.drag-over { border-color:#83b943; background:#e6f7cf; transform:scale(1.03); }
+.drop-slot:focus-visible { outline:2px solid #91c84b; outline-offset:2px; }
+.game-footer { display:flex; justify-content:space-between; align-items:center; gap:18px; padding-top:22px; }
+.footer-note { display:flex; align-items:center; gap:9px; max-width:570px; color:#87918b; font-family:"Prompt",sans-serif; font-size:11px; line-height:1.6; }
+.note-icon { flex:0 0 19px; height:19px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:#f0f4ed; color:#7c8d70; font-family:serif; font-weight:bold; }
+.send-button { display:inline-flex; align-items:center; justify-content:center; gap:19px; min-width:174px; border:0; border-radius:12px; padding:14px 18px; color:#1e2a1c; background:var(--green); font-weight:800; font-size:13px; cursor:pointer; box-shadow:0 4px 0 #b1dd5b; transition:transform .15s,background .15s; }
+.send-button span { font-size:18px; line-height:10px; }
+.send-button:hover { background:#d4f79a; transform:translateY(-2px); }
+.send-button:active { transform:translateY(2px); box-shadow:0 1px 0 #b1dd5b; }
+.send-button:disabled { opacity:.5; cursor:not-allowed; transform:none; }
+.feedback { min-height:18px; padding-top:12px; color:#849087; font-family:"Prompt",sans-serif; font-size:11px; }
+.feedback.error { color:#d65c52; }
+.feedback.success { color:#5b8c2b; }
+.bottom-note { margin:22px 0 0; text-align:center; color:#a3ada5; font-size:9px; letter-spacing:2px; font-weight:800; }
+.bottom-note span { color:#8dbb4c; margin:0 5px; }
+.overlay { position:fixed; inset:0; z-index:10; display:flex; align-items:center; justify-content:center; padding:20px; background:rgba(15,22,19,.78); backdrop-filter:blur(6px); animation:fadeIn .2s ease-out; }
+.overlay.hidden { display:none; }
+.result-card { width:min(420px,100%); padding:34px 30px 30px; text-align:center; background:white; border-radius:25px; box-shadow:0 25px 90px rgba(0,0,0,.25); animation:popIn .28s ease-out; }
+.result-icon { display:flex; align-items:center; justify-content:center; width:57px; height:57px; margin:0 auto 17px; border-radius:18px; background:#e9f8d5; color:#62952d; font-size:28px; }
+.result-card.lost .result-icon { background:#fff0ee; color:#db6359; }
+.result-kicker { font-size:9px; }
+.result-card h2 { margin:8px 0; font-size:32px; letter-spacing:-1px; }
+.result-card p { margin:0 auto; color:#7d8881; font-family:"Prompt",sans-serif; font-size:13px; line-height:1.7; }
+.remaining-time { display:flex; flex-direction:column; gap:5px; margin:23px 0 22px; padding:14px; border:1px solid #e8efe1; background:#f8fbf4; border-radius:13px; }
+.remaining-time span { font-size:9px; color:#87937f; font-weight:800; letter-spacing:1.5px; }
+.remaining-time strong { font-size:27px; font-variant-numeric:tabular-nums; }
+.result-card.lost .remaining-time { display:none; }
+.result-button { width:100%; }
+@keyframes fadeIn { from {opacity:0} to {opacity:1} }
+@keyframes popIn { from {opacity:0;transform:translateY(12px) scale(.97)} to {opacity:1;transform:translateY(0) scale(1)} }
+@media (max-width:650px) {
+  .app { width:calc(100% - 22px); padding-top:13px; }
+  .mode-label { display:none; }
+  .intro { padding:27px 0 21px; }
+  .game-panel { padding:17px 13px; border-radius:18px; }
+  .challenge-head { gap:10px; }
+  .challenge-head h2 { font-size:21px; }
+  .challenge-head p { max-width:210px; font-size:11px; line-height:1.6; }
+  .timer-card { min-width:105px; padding:10px; }
+  .timer-card strong { font-size:23px; }
+  .helper { max-width:145px; text-align:right; font-size:10px; }
+  .phase-row { grid-template-columns:54px minmax(0,1fr); gap:6px; }
+  .phase-slots { gap:4px; padding:5px; }
+  .drop-slot { min-height:39px; border-radius:6px; font-size:10px; }
+  .drop-slot.filled { font-size:14px; }
+  .phase-label strong { font-size:10px; }
+  .phase-label span { font-size:8px; }
+  .number-tile { min-width:54px; height:46px; font-size:17px; padding:0 9px; }
+  .number-tile::before { margin-right:5px; }
+  .game-footer { align-items:stretch; flex-direction:column; }
+  .send-button { width:100%; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
